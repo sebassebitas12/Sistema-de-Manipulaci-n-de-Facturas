@@ -218,7 +218,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
       {/* 1. Datos del Documento */}
       <div className="rounded-xl border border-slate-200/90 bg-white p-6 shadow-2xs">
         <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-100">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-red-50 text-red-700">
             <FileText className="h-4 w-4" />
           </div>
           <h3 className="text-sm font-bold uppercase tracking-wider text-slate-800">
@@ -236,7 +236,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
               required
               value={formData.numeroFactura}
               onChange={(e) => setFormData({ ...formData, numeroFactura: e.target.value })}
-              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono font-medium text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono font-medium text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
             />
           </div>
 
@@ -249,7 +249,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
               required
               value={formData.fechaEmision}
               onChange={(e) => setFormData({ ...formData, fechaEmision: e.target.value })}
-              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
             />
           </div>
 
@@ -262,7 +262,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
               required
               value={formData.fechaVencimiento}
               onChange={(e) => setFormData({ ...formData, fechaVencimiento: e.target.value })}
-              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
             />
           </div>
 
@@ -273,7 +273,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
             <select
               value={formData.condicionVenta}
               onChange={(e) => setFormData({ ...formData, condicionVenta: e.target.value })}
-              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
             >
               {CONDICION_VENTA_OPTIONS.map((opt) => (
                 <option key={opt} value={opt}>
@@ -290,7 +290,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
             <select
               value={formData.medioPago}
               onChange={(e) => setFormData({ ...formData, medioPago: e.target.value })}
-              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+              className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
             >
               {MEDIO_PAGO_OPTIONS.map((opt) => (
                 <option key={opt} value={opt}>
@@ -307,7 +307,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
         {/* Emisor */}
         <div className="rounded-xl border border-slate-200/90 bg-white p-6 shadow-2xs">
           <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-100">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-red-50 text-red-700">
               <Building2 className="h-4 w-4" />
             </div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-slate-800">
@@ -325,7 +325,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                 required
                 value={formData.emisor.nombre}
                 onChange={(e) => handleEmisorChange('nombre', e.target.value)}
-                className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
               />
             </div>
 
@@ -337,7 +337,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                 <select
                   value={formData.emisor.tipoIdentificacion}
                   onChange={(e) => handleEmisorChange('tipoIdentificacion', e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
                 >
                   {TIPO_ID_OPTIONS.map((t) => (
                     <option key={t} value={t}>
@@ -356,7 +356,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                   placeholder="3-101-789456"
                   value={formData.emisor.identificacion}
                   onChange={(e) => handleEmisorChange('identificacion', e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
                 />
               </div>
             </div>
@@ -368,7 +368,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                   type="email"
                   value={formData.emisor.correo}
                   onChange={(e) => handleEmisorChange('correo', e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
                 />
               </div>
               <div>
@@ -377,7 +377,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                   type="text"
                   value={formData.emisor.telefono}
                   onChange={(e) => handleEmisorChange('telefono', e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
                 />
               </div>
             </div>
@@ -389,7 +389,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                 value={formData.emisor.direccion}
                 onChange={(e) => handleEmisorChange('direccion', e.target.value)}
                 placeholder="Provincia, cantón, señas exactas"
-                className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
               />
             </div>
           </div>
@@ -398,7 +398,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
         {/* Cliente */}
         <div className="rounded-xl border border-slate-200/90 bg-white p-6 shadow-2xs">
           <div className="flex items-center gap-2.5 mb-5 pb-3 border-b border-slate-100">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-red-50 text-red-700">
               <User className="h-4 w-4" />
             </div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-slate-800">
@@ -417,7 +417,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                 placeholder="Ej: Corporación Médica del Este S.A."
                 value={formData.cliente.nombre}
                 onChange={(e) => handleClienteChange('nombre', e.target.value)}
-                className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
               />
             </div>
 
@@ -429,7 +429,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                 <select
                   value={formData.cliente.tipoIdentificacion}
                   onChange={(e) => handleClienteChange('tipoIdentificacion', e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
                 >
                   {TIPO_ID_OPTIONS.map((t) => (
                     <option key={t} value={t}>
@@ -447,7 +447,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                   placeholder="3-101-123456"
                   value={formData.cliente.identificacion}
                   onChange={(e) => handleClienteChange('identificacion', e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
                 />
               </div>
             </div>
@@ -460,7 +460,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                   placeholder="contacto@empresa.cr"
                   value={formData.cliente.correo}
                   onChange={(e) => handleClienteChange('correo', e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
                 />
               </div>
               <div>
@@ -470,7 +470,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                   placeholder="2200-0000"
                   value={formData.cliente.telefono}
                   onChange={(e) => handleClienteChange('telefono', e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
                 />
               </div>
             </div>
@@ -482,7 +482,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
                 placeholder="Provincia, cantón, señas"
                 value={formData.cliente.direccion}
                 onChange={(e) => handleClienteChange('direccion', e.target.value)}
-                className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+                className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
               />
             </div>
           </div>
@@ -493,7 +493,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
       <div className="rounded-xl border border-slate-200/90 bg-white p-6 shadow-2xs">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-red-50 text-red-700">
               <ShoppingBag className="h-4 w-4" />
             </div>
             <div>
@@ -509,7 +509,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
           <button
             type="button"
             onClick={handleAddItem}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-sky-200 bg-sky-50/80 px-3.5 py-2 text-xs font-semibold text-sky-700 hover:bg-sky-100 card-hover-transition active:scale-[0.98]"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-red-200 bg-red-50/80 px-3.5 py-2 text-xs font-semibold text-red-700 hover:bg-red-100 card-hover-transition active:scale-[0.98]"
           >
             <Plus className="h-4 w-4" />
             <span>Agregar Línea</span>
@@ -577,7 +577,7 @@ export default function InvoiceForm({ onSaveInvoice, onCancel, nextInvoiceNumber
         )}
         <button
           type="submit"
-          className="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-sky-700 card-hover-transition active:scale-[0.98]"
+          className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-red-700 card-hover-transition active:scale-[0.98]"
         >
           <Check className="h-4 w-4" />
           <span>Guardar y Emitir Factura</span>

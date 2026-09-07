@@ -15,7 +15,7 @@ const CustomTooltip = ({ active, payload, label }) => {
     return (
       <div className="rounded-xl border border-slate-700 bg-slate-900/95 p-3.5 text-xs text-white shadow-xl backdrop-blur-xs">
         <p className="font-semibold text-slate-300 uppercase tracking-wider text-[10px]">{label}</p>
-        <p className="mt-1 font-mono text-base font-bold text-sky-400 tabular-nums">
+        <p className="mt-1 font-mono text-base font-bold text-red-400 tabular-nums">
           {formatCurrency(payload[0].value)}
         </p>
         <p className="text-slate-400 mt-1 text-[11px]">
@@ -54,7 +54,7 @@ export default function RevenueChart({ data = [] }) {
             tickFormatter={(val) => `₡${(val / 1000).toFixed(0)}k`}
           />
           <Tooltip content={<CustomTooltip />} cursor={{ fill: '#F8FAFC' }} />
-          <Bar dataKey="total" fill="#0284C7" radius={[6, 6, 0, 0]} maxBarSize={44} />
+          <Bar dataKey="total" fill="#DC2626" radius={[6, 6, 0, 0]} maxBarSize={44} />
         </BarChart>
       </ResponsiveContainer>
     </div>

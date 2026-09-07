@@ -40,7 +40,7 @@ export default function DashboardPage({ invoices = [] }) {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
         <div>
           <h2 className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-sky-700" />
+            <TrendingUp className="h-5 w-5 text-red-700" />
             <span>Dashboard Administrativo y Análisis de Facturación</span>
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -172,7 +172,7 @@ export default function DashboardPage({ invoices = [] }) {
                 Evolución de montos facturados en colones costarricenses (CRC).
               </p>
             </div>
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-50 text-red-700">
               <Calendar className="h-4 w-4" />
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function DashboardPage({ invoices = [] }) {
                 Participación de los principales clientes en la facturación total.
               </p>
             </div>
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-50 text-red-700">
               <Users className="h-4 w-4" />
             </div>
           </div>
@@ -249,7 +249,7 @@ export default function DashboardPage({ invoices = [] }) {
                     {/* Barra visual de porcentaje */}
                     <div className="mt-3 w-full bg-slate-200/80 rounded-full h-1.5 overflow-hidden">
                       <div
-                        className="bg-sky-600 h-1.5 rounded-full transition-all duration-500"
+                        className="bg-red-600 h-1.5 rounded-full transition-all duration-500"
                         style={{ width: `${porcentaje}%` }}
                       ></div>
                     </div>
@@ -276,7 +276,7 @@ export default function DashboardPage({ invoices = [] }) {
                 </h3>
                 <p className="text-xs text-slate-500 mt-0.5">Estimación basada en promedio móvil aritmético</p>
               </div>
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-700">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-50 text-red-700">
                 <TrendingUp className="h-4 w-4" />
               </div>
             </div>

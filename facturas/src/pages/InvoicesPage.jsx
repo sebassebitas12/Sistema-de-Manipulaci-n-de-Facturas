@@ -29,7 +29,7 @@ export default function InvoicesPage({
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-100 text-sky-700">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 text-red-700">
               <Receipt className="h-4 w-4" />
             </div>
             <h2 className="text-xl font-bold tracking-tight text-slate-900">
@@ -58,7 +58,7 @@ export default function InvoicesPage({
             <button
               type="button"
               onClick={() => setIsCreating(true)}
-              className="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-sky-700 card-hover-transition active:scale-[0.98]"
+              className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-red-700 card-hover-transition active:scale-[0.98]"
             >
               <Plus className="h-4 w-4" />
               <span>Nueva Factura</span>

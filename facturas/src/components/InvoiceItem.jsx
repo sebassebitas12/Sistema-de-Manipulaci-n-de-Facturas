@@ -46,7 +46,7 @@ export default function InvoiceItem({
             value={item.descripcion}
             onChange={(e) => handleFieldChange('descripcion', e.target.value)}
             placeholder="Ej: Servicio de consultoría técnica especializada"
-            className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
           />
         </div>
 
@@ -62,7 +62,7 @@ export default function InvoiceItem({
             required
             value={item.cantidad}
             onChange={(e) => handleFieldChange('cantidad', parseFloat(e.target.value) || 0)}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none tabular-nums transition-all"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none tabular-nums transition-all"
           />
         </div>
 
@@ -78,7 +78,7 @@ export default function InvoiceItem({
             required
             value={item.precioUnitario}
             onChange={(e) => handleFieldChange('precioUnitario', parseFloat(e.target.value) || 0)}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none tabular-nums transition-all"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2 text-sm font-mono text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none tabular-nums transition-all"
           />
         </div>
 
@@ -90,7 +90,7 @@ export default function InvoiceItem({
           <select
             value={item.tasaIVA}
             onChange={(e) => handleFieldChange('tasaIVA', parseFloat(e.target.value))}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-900 focus:border-sky-600 focus:ring-2 focus:ring-sky-100 focus:outline-none transition-all"
+            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-900 focus:border-red-600 focus:ring-2 focus:ring-red-100 focus:outline-none transition-all"
           >
             {IVA_RATES.map((rateOption) => (
               <option key={rateOption.rate} value={rateOption.rate}>

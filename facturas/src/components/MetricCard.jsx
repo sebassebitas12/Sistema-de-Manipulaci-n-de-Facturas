@@ -17,7 +17,7 @@ export default function MetricCard({
       case 'success':
         return 'bg-emerald-50 text-emerald-800 border-emerald-200/80';
       case 'info':
-        return 'bg-sky-50 text-sky-800 border-sky-200/80';
+        return 'bg-red-50 text-red-800 border-red-200/80';
       default:
         return 'bg-slate-100 text-slate-700 border-slate-200/80';
     }

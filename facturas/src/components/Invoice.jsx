@@ -1,4 +1,4 @@
-import { Printer, CheckCircle2, Clock4, AlertCircle, Building2, ShieldCheck } from 'lucide-react';
+import { Download, CheckCircle2, Clock4, AlertCircle, Building2, ShieldCheck } from 'lucide-react';
 import { formatCurrency } from '../utils/currency.js';
 import { calculateInvoiceTotals, calculateItemTotals } from '../utils/invoiceCalculations.js';
 import { getInvoiceStatus, getStatusBadgeStyle } from '../utils/invoiceStatus.js';
@@ -15,8 +15,51 @@ export default function Invoice({ invoice }) {
   const { subtotal, impuesto, total } = calculateInvoiceTotals(invoice.items);
   const status = getInvoiceStatus(invoice);
 
-  const handlePrint = () => {
-    window.print();
+  const handleDownloadPDF = () => {
+    const element = document.getElementById('invoice-printable-document');
+    if (!element) return;
+
+    // Usar los links de hojas de estilo ya cargadas en el documento
+    const linkTags = Array.from(document.querySelectorAll('link[rel="stylesheet"]'))
+      .map((link) => `<link rel="stylesheet" href="${link.href}" />`)
+      .join('\n');
+
+    // Estilos inline embebidos en <style> tags (Vite los inyecta así en dev)
+    const styleTags = Array.from(document.querySelectorAll('style'))
+      .map((s) => `<style>${s.textContent}</style>`)
+      .join('\n');
+
+    const printWindow = window.open('', '_blank', 'width=960,height=800');
+    if (!printWindow) {
+      alert('El navegador bloqueó la ventana emergente. Permite ventanas emergentes para localhost.');
+      return;
+    }
+
+    printWindow.document.write(`
+      <!DOCTYPE html>
+      <html lang="es">
+        <head>
+          <meta charset="UTF-8" />
+          <title>Factura ${invoice.numeroFactura}</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+          ${linkTags}
+          ${styleTags}
+          <style>
+            @page { size: A4; margin: 15mm; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-sizing: border-box; }
+            html, body { background: white !important; margin: 0; padding: 0; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+          </style>
+        </head>
+        <body>
+          ${element.outerHTML}
+          <script>
+            window.onload = function() { setTimeout(function() { window.print(); }, 400); };
+          </script>
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
   };
 
   return (
@@ -47,12 +90,12 @@ export default function Invoice({ invoice }) {
         <div className="flex items-center gap-2">
           <button
             type="button"
-            onClick={handlePrint}
-            aria-label="Imprimir comprobante o guardar como PDF"
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-2xs hover:bg-slate-50 hover:border-slate-300 card-hover-transition active:scale-[0.98]"
+            onClick={handleDownloadPDF}
+            aria-label="Guardar factura como PDF"
+            className="inline-flex items-center gap-2 rounded-lg border border-transparent bg-red-600 px-3.5 py-1.5 text-xs font-semibold text-white shadow-2xs hover:bg-red-700 card-hover-transition active:scale-[0.98]"
           >
-            <Printer className="h-4 w-4 text-slate-500" />
-            <span>Imprimir Factura</span>
+            <Download className="h-4 w-4" />
+            <span>Guardar como PDF</span>
           </button>
         </div>
       </div>
@@ -70,14 +113,14 @@ export default function Invoice({ invoice }) {
               {/* Identidad del Emisor */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 text-white shadow-xs">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-600 text-white shadow-xs">
                     <Building2 className="h-5 w-5" />
                   </div>
                   <div>
                     <h2 className="text-lg font-bold tracking-tight text-slate-900">
                       {invoice.emisor?.nombre || 'Soluciones Empresariales S.A.'}
                     </h2>
-                    <p className="text-xs font-semibold text-sky-800">
+                    <p className="text-xs font-semibold text-red-700">
                       Emisor Comercial Autorizado
                     </p>
                   </div>

@@ -46,15 +46,15 @@ export default function InvoiceList({
                 onSelectInvoice(invoice.id);
               }
             }}
-            className={`group relative rounded-xl border p-4 text-left cursor-pointer card-hover-transition outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${
+            className={`group relative rounded-xl border p-4 text-left cursor-pointer card-hover-transition outline-none focus-visible:ring-2 focus-visible:ring-red-500 ${
               isSelected
-                ? 'border-sky-500 bg-sky-50/50 shadow-xs ring-1 ring-sky-500/20'
+                ? 'border-red-500 bg-red-50/50 shadow-xs ring-1 ring-red-500/20'
                 : 'border-slate-200/90 bg-white hover:border-slate-300 hover:bg-slate-50/60 hover:shadow-2xs'
             }`}
           >
             {/* Indicador de Selección Izquierdo */}
             {isSelected && (
-              <span className="absolute left-0 top-3 bottom-3 w-1 rounded-r-full bg-sky-600" />
+              <span className="absolute left-0 top-3 bottom-3 w-1 rounded-r-full bg-red-600" />
             )}
 
             <div className="flex items-start justify-between gap-3">
@@ -109,7 +109,7 @@ export default function InvoiceList({
                 <p className="font-mono text-sm font-bold text-slate-950 tabular-nums">
                   {formatCurrency(total)}
                 </p>
-                <div className="flex items-center gap-0.5 text-xs font-medium text-slate-400 group-hover:text-sky-600 transition-colors">
+                <div className="flex items-center gap-0.5 text-xs font-medium text-slate-400 group-hover:text-red-600 transition-colors">
                   <span className="hidden sm:inline text-[11px]">Ver</span>
                   <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </div>

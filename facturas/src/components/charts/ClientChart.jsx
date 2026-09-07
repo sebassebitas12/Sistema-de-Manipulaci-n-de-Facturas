@@ -15,7 +15,7 @@ const CustomClientTooltip = ({ active, payload }) => {
     return (
       <div className="rounded-xl border border-slate-700 bg-slate-900/95 p-3.5 text-xs text-white shadow-xl backdrop-blur-xs">
         <p className="font-semibold text-slate-200">{item.fullName}</p>
-        <p className="mt-1 font-mono text-base font-bold text-teal-400 tabular-nums">
+        <p className="mt-1 font-mono text-base font-bold text-red-400 tabular-nums">
           {formatCurrency(payload[0].value)}
         </p>
         <p className="text-slate-400 mt-1 text-[11px]">
@@ -64,7 +64,7 @@ export default function ClientChart({ data = [] }) {
             width={120}
           />
           <Tooltip content={<CustomClientTooltip />} cursor={{ fill: '#F8FAFC' }} />
-          <Bar dataKey="value" fill="#0D9488" radius={[0, 6, 6, 0]} maxBarSize={24} />
+          <Bar dataKey="value" fill="#DC2626" radius={[0, 6, 6, 0]} maxBarSize={24} />
         </BarChart>
       </ResponsiveContainer>
     </div>

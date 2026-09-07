@@ -41,7 +41,7 @@ export default function App() {
           <div className="flex h-16 items-center justify-between gap-4">
             {/* Logotipo y Título */}
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-700 text-white shadow-xs">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-600 text-white shadow-xs">
                 <Building2 className="h-5 w-5" />
               </div>
               <div>
@@ -49,7 +49,7 @@ export default function App() {
                   <h1 className="text-base font-bold tracking-tight text-slate-900 leading-tight">
                     Facturación &amp; Dashboard CR
                   </h1>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-red-50 text-red-700 border border-red-200">
                     CRC (₡)
                   </span>
                 </div>
@@ -67,7 +67,7 @@ export default function App() {
                 onClick={() => setActiveTab('invoices')}
                 className={`inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-semibold transition-all ${
                   activeTab === 'invoices'
-                    ? 'bg-sky-600 text-white shadow-xs'
+                    ? 'bg-red-600 text-white shadow-xs'
                     : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >
@@ -76,7 +76,7 @@ export default function App() {
                 <span
                   className={`ml-0.5 rounded-full px-1.5 py-0.2 text-[10px] font-bold ${
                     activeTab === 'invoices'
-                      ? 'bg-sky-800/80 text-white'
+                      ? 'bg-red-800/80 text-white'
                       : 'bg-slate-200 text-slate-700'
                   }`}
                 >
@@ -90,7 +90,7 @@ export default function App() {
                 onClick={() => setActiveTab('dashboard')}
                 className={`inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-semibold transition-all ${
                   activeTab === 'dashboard'
-                    ? 'bg-sky-600 text-white shadow-xs'
+                    ? 'bg-red-600 text-white shadow-xs'
                     : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >
