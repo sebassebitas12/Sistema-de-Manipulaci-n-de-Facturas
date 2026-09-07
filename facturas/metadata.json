@@ -1,0 +1,7 @@
+{
+  "name": "Sistema de Facturación Costa Rica",
+  "description": "Simulación académica de facturación comercial y dashboard administrativo con cálculo de IVA y métricas financieras para Costa Rica.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

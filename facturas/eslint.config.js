@@ -1,21 +1,39 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import js from '@eslint/js';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 
-export default defineConfig([
-  globalIgnores(['dist']),
+export default [
+  { ignores: ['dist/**', 'node_modules/**'] },
   {
     files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
     languageOptions: {
-      globals: globals.browser,
-      parserOptions: { ecmaFeatures: { jsx: true } },
+      ecmaVersion: 2022,
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
+        ...globals.node,
+      },
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    settings: {
+      react: { version: '19.0' },
+    },
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+      'react/prop-types': 'off',
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     },
   },
-])
+];
