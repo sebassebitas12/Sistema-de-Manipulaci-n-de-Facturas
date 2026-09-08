@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import {
   DollarSign,
   FileCheck2,
@@ -13,14 +12,11 @@ import {
 import MetricCard from '../components/MetricCard.jsx';
 import RevenueChart from '../components/charts/RevenueChart.jsx';
 import ClientChart from '../components/charts/ClientChart.jsx';
-import { computeDashboardMetrics } from '../utils/analytics.js';
+import { useDashboardMetrics } from '../hooks/useDashboardMetrics.js';
 import { formatCurrency, formatNumber } from '../utils/currency.js';
 
 export default function DashboardPage({ invoices = [] }) {
-  // useMemo para optimizar los cálculos analíticos derivados
-  const metrics = useMemo(() => {
-    return computeDashboardMetrics(invoices);
-  }, [invoices]);
+  const metrics = useDashboardMetrics(invoices);
 
   const {
     totalFacturado,
