@@ -7,13 +7,14 @@ import InvoiceForm from '../components/InvoiceForm.jsx';
 export default function InvoicesPage({
   invoices = [],
   selectedInvoiceId,
+  selectedInvoice,
+  isLoadingInvoice,
+  invoiceError,
   onSelectInvoice,
   onAddInvoice,
   outlierIds = new Set(),
 }) {
   const [isCreating, setIsCreating] = useState(false);
-
-  const selectedInvoice = invoices.find((inv) => inv.id === selectedInvoiceId) || invoices[0];
 
   const handleSave = (newInvoice) => {
     onAddInvoice(newInvoice);
@@ -84,7 +85,7 @@ export default function InvoicesPage({
           <div className="max-h-[calc(100vh-10rem)] overflow-y-auto pr-1">
             <InvoiceList
               invoices={invoices}
-              selectedInvoiceId={selectedInvoice?.id}
+              selectedInvoiceId={selectedInvoiceId}
               onSelectInvoice={(id) => {
                 onSelectInvoice(id);
                 setIsCreating(false);
@@ -113,7 +114,22 @@ export default function InvoicesPage({
               />
             </div>
           ) : (
-            <Invoice invoice={selectedInvoice} />
+            <div className="space-y-4">
+              {isLoadingInvoice && (
+                <div className="rounded-xl border border-slate-200 bg-white p-6 text-center text-xs text-slate-500 shadow-2xs">
+                  Cargando detalle de la factura...
+                </div>
+              )}
+              {invoiceError && (
+                <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-xs text-rose-900 shadow-2xs">
+                  <p className="font-bold">Error al cargar la factura</p>
+                  <p>{invoiceError.message || 'No se pudo obtener el detalle.'}</p>
+                </div>
+              )}
+              {!isLoadingInvoice && !invoiceError && (
+                <Invoice invoice={selectedInvoice} />
+              )}
+            </div>
           )}
         </section>
       </div>

@@ -8,30 +8,24 @@ import {
 } from 'lucide-react';
 import InvoicesPage from './pages/InvoicesPage.jsx';
 import DashboardPage from './pages/DashboardPage.jsx';
-import { SAMPLE_INVOICES } from './data/sampleInvoices.js';
-import { detectOutliers } from './utils/analytics.js';
+import { useInvoices } from './hooks/useInvoices.js';
+import * as analyticsService from './services/analyticsService.js';
 
 export default function App() {
-  const [invoices, setInvoices] = useState(SAMPLE_INVOICES);
-  const [selectedInvoiceId, setSelectedInvoiceId] = useState(
-    SAMPLE_INVOICES[0]?.id || null
-  );
-  const [activeTab, setActiveTab] = useState('invoices'); // 'invoices' | 'dashboard'
+  const [activeTab, setActiveTab] = useState('invoices');
 
-  // Identificar facturas atípicas en memoria
-  const outliersData = useMemo(() => {
-    return detectOutliers(invoices);
-  }, [invoices]);
+  const {
+    invoices,
+    selectedInvoiceId,
+    selectedInvoice,
+    isLoadingInvoice,
+    invoiceError,
+    addInvoice,
+    selectInvoice,
+    resetToSampleData,
+  } = useInvoices();
 
-  const handleAddInvoice = (newInvoice) => {
-    setInvoices((prev) => [newInvoice, ...prev]);
-    setSelectedInvoiceId(newInvoice.id);
-  };
-
-  const handleResetSampleData = () => {
-    setInvoices(SAMPLE_INVOICES);
-    setSelectedInvoiceId(SAMPLE_INVOICES[0].id);
-  };
+  const outliersData = useMemo(() => analyticsService.getOutliers(invoices), [invoices]);
 
   return (
     <div className="min-h-screen bg-slate-100 text-slate-900 flex flex-col font-sans">
@@ -115,7 +109,7 @@ export default function App() {
             <div className="hidden md:flex items-center gap-2">
               <button
                 type="button"
-                onClick={handleResetSampleData}
+                onClick={resetToSampleData}
                 title="Recargar el dataset de 8 facturas de prueba"
                 className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors"
               >
@@ -133,8 +127,11 @@ export default function App() {
           <InvoicesPage
             invoices={invoices}
             selectedInvoiceId={selectedInvoiceId}
-            onSelectInvoice={setSelectedInvoiceId}
-            onAddInvoice={handleAddInvoice}
+            selectedInvoice={selectedInvoice}
+            isLoadingInvoice={isLoadingInvoice}
+            invoiceError={invoiceError}
+            onSelectInvoice={selectInvoice}
+            onAddInvoice={addInvoice}
             outlierIds={outliersData.outlierIds}
           />
         ) : (
