@@ -120,12 +120,27 @@ export async function getInvoiceById(id, options = {}) {
   if (!id) {
     throw new Error('El id de la factura es obligatorio.');
   }
+    const url = `/api/invoices/${encodeURIComponent(id)}`;
 
+  console.log('[invoiceService] Consultando factura:', {
+    id,
+    url,
+  });
   const response = await fetch(`/api/invoices/${encodeURIComponent(id)}`, options);
+  const contentType = response.headers.get('content-type') || '';
+  const responseData = contentType.includes('application/json')
+    ? await response.json()
+    : null;
 
   if (!response.ok) {
-    throw new Error(`No se pudo obtener la factura ${id}.`);
+    throw new Error(
+      responseData?.message || `No se pudo obtener la factura ${id}.`
+    );
   }
 
-  return response.json();
+  if (!responseData) {
+    throw new Error('El servidor no devolvió una respuesta JSON válida.');
+  }
+
+  return responseData;
 }

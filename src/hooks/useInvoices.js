@@ -15,20 +15,8 @@ export function useInvoices() {
     setSelectedInvoiceId(newInvoice.id);
   }, []);
 
-  const selectInvoice = useCallback(async (id) => {
+  const selectInvoice = useCallback((id) => {
     setSelectedInvoiceId(id);
-    setInvoiceError(null);
-    setIsLoadingInvoice(true);
-
-    try {
-      const invoice = await invoiceService.getInvoiceById(id);
-      setSelectedInvoice(invoice);
-    } catch (error) {
-      setSelectedInvoice(null);
-      setInvoiceError(error);
-    } finally {
-      setIsLoadingInvoice(false);
-    }
   }, []);
 
   const resetToSampleData = useCallback(() => {
